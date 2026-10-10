@@ -20,7 +20,7 @@ Diagnostics: The Ljung-Box test on squared standardized residuals passed comfort
 Out-of-sample forecasting: Across a held-out ~2-year test period, the GARCH(1,1)-t model outperformed a naive 20-day rolling-volatility benchmark by +3.6% on RMSE and +19.1% on QLIKE (the loss function standard in the volatility-forecasting literature, which penalizes underestimating risk more heavily). The forecast comparison plot shows GARCH reacting almost immediately to a sharp volatility spike in the test period, while the naive benchmark lags visibly behind.
 ![graph](forecast_comparison_plot.png)
 Sensitivity analysis. The comparison was rerun across 9 combinations of refit frequency (10/20/40 days) and naive benchmark window (10/20/60 days). GARCH beat the naive benchmark in 9 out of 9 configurations on both RMSE and QLIKE, with the improvement ranging from +3.0% to +5.5% (RMSE) and +16.8% to +26.1% (QLIKE) — confirming the result is a genuine, robust effect rather than an artifact of one arbitrary parameter choice.
-![graph](volatility_Clustering_plot.png)
+![clustering graph](volatility_clustering_plot.png)
 A note on persistence and the Student-t fit. The Student-t model (the better-fitting model per diagnostics) estimates a notably higher persistence (0.992, half-life ≈ 84 days) than the Normal-errors fit (0.965, half-life ≈ 20 days). This is a known sensitivity in GARCH estimation: persistence estimates can be pulled toward 1 by extreme outliers in the training sample — here, the 2020 COVID crash — and is discussed further in Assumptions & Limitations below.
 ![graph](forecast_decay_plot.png)
 ## How to run this code:
